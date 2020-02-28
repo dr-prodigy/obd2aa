@@ -71,8 +71,7 @@ public class ArcProgress extends View {
     private final int min_size;
     protected Paint textPaint;
     protected Paint textScalePaint;
-    //Typeface type = Typeface.createFromAsset(getContext().getAssets(), "fonts/RobotoCondensed.ttf");
-    Typeface type = getResources().getFont(R.font.djbgetdigital_6g5g);
+    Typeface type = Typeface.createFromAsset(getContext().getAssets(), "fonts/DjbGetDigital-6G5g.ttf");
 
     float[][] scale_pos;
     float[][] scale_num_pos;
