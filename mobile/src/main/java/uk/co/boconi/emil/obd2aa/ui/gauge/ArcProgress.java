@@ -52,7 +52,7 @@ public class ArcProgress extends View {
     private final boolean default_showText = true;
     private final boolean default_showUnit = true;
     private final boolean default_showNeedle = true;
-    private final boolean default_showDecimal = false;
+    private final int default_showDecimals = 2;
     private final float default_suffix_text_size;
     private final float default_suffix_padding;
     private final float default_bottom_text_size;
@@ -97,7 +97,7 @@ public class ArcProgress extends View {
     private boolean showArc;
     private boolean showText;
     private boolean showNeedle;
-    private boolean showDecimal;
+    private int showDecimals;
     private boolean showUnit;
     private float arcAngle;
     private String suffixText = "%";
@@ -160,7 +160,7 @@ public class ArcProgress extends View {
         showArc = attributes.getBoolean(R.styleable.ArcProgress_showArc, default_showArc);
         showText = attributes.getBoolean(R.styleable.ArcProgress_showtext, default_showText);
         showNeedle = attributes.getBoolean(R.styleable.ArcProgress_showNeedle, default_showNeedle);
-        showDecimal = attributes.getBoolean(R.styleable.ArcProgress_showDecimal, default_showDecimal);
+        showDecimals = attributes.getInt(R.styleable.ArcProgress_showDecimal, default_showDecimals);
         showUnit = attributes.getBoolean(R.styleable.ArcProgress_showUnit, default_showUnit);
 
         gaugeScale = new Scale(
@@ -285,8 +285,8 @@ public class ArcProgress extends View {
         this.invalidate();
     }
 
-    public void setShowDecimal(boolean setShowDecimal) {
-        this.showDecimal = setShowDecimal;
+    public void setShowDecimals(int setShowDecimals) {
+        this.showDecimals = setShowDecimals;
         this.invalidate();
     }
 
@@ -715,10 +715,7 @@ public class ArcProgress extends View {
 
         String value;
         textPaint.setTypeface(type);
-        if (showDecimal)
-            value = String.format("%.2f", getProgress());
-        else
-            value = String.format("%.0f", getProgress());
+            value = String.format("%." + showDecimals + "f", getProgress());
         float bottomTextBaseline = 0;
         float bottomTextHeight = 0;
 

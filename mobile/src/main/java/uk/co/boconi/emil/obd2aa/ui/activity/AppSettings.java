@@ -536,7 +536,7 @@ public class AppSettings extends AppCompatActivity {
             editor.putBoolean("showunit_" + i, true);
             editor.putBoolean("showtext_" + i, true);
             editor.putBoolean("usegradienttext_" + i, false);
-            editor.putBoolean("showdecimal_" + i, true);
+            editor.putInt("showdecimals_" + i, 2);
             editor.putBoolean("use_custom_bg_" + i, false);
             editor.putFloat("minval_" + i, 0);
             editor.putFloat("maxval_" + i, 100);
@@ -565,7 +565,7 @@ public class AppSettings extends AppCompatActivity {
             editor.remove("showunit_" + i);
             editor.remove("showtext_" + i);
             editor.remove("usegradienttext_" + i);
-            editor.remove("showdecimal_" + i);
+            editor.remove("showdecimals_" + i);
             editor.remove("minval_" + i);
             editor.remove("maxval_" + i);
             editor.remove("locked_" + i);
@@ -710,9 +710,6 @@ public class AppSettings extends AppCompatActivity {
             cb = custom.findViewById(R.id.usegradienttext);
             cb.setTag("usegradienttext_" + i);
             cb.setChecked(prefs.getBoolean("usegradienttext_" + i, false));
-            cb = custom.findViewById(R.id.showdecimal);
-            cb.setTag("showdecimal_" + i);
-            cb.setChecked(prefs.getBoolean("showdecimal_" + i, false));
             cb = custom.findViewById(R.id.showunit);
             cb.setTag("showunit_" + i);
             cb.setChecked(prefs.getBoolean("showunit_" + i, false));
@@ -731,6 +728,11 @@ public class AppSettings extends AppCompatActivity {
                 View tmpview = (View) et.getParent();
                 tmpview.setVisibility(View.GONE);
             }
+
+            et = custom.findViewById(R.id.showdecimals);
+            et.setTag("showdecimals_" + i);
+            et.addTextChangedListener(getTextWatcher(et));
+            et.setText(String.valueOf(prefs.getInt("showdecimals_" + i, 2)));
 
             et = custom.findViewById(R.id.scaleunit);
             et.addTextChangedListener(getTextWatcher(et));
@@ -936,7 +938,8 @@ public class AppSettings extends AppCompatActivity {
                         || tagname.contains("arch_startpos_")
                         || tagname.contains("arch_length_")
                         || tagname.contains("scaleunit_")
-                        || tagname.contains("scaledecimals_")) {
+                        || tagname.contains("scaledecimals_")
+                        || tagname.contains("showdecimals_")) {
                     int myval = 0;
                     if (editText.getText().toString().length() != 0)
                         try {

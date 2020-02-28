@@ -319,14 +319,14 @@
             android:text="@string/show_decimals"
             android:textSize="16sp" />
 
-        <CheckBox
-            android:id="@+id/showdecimal"
+        <EditText
+            android:id="@+id/showdecimals"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="5"
-            android:checked="false"
-            android:onClick="checkboxUpdater" />
-
+            android:ems="10"
+            android:gravity=""
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout

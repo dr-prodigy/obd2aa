@@ -144,7 +144,7 @@ public class DrawGauges {
                 newArc.setShowArc(prefs.getBoolean("showscale_" + x, true));
                 newArc.setShowText(prefs.getBoolean("showtext_" + x, true));
                 newArc.setUseGradientColor(prefs.getBoolean("usegradienttext_" + x, false));
-                newArc.setShowDecimal(prefs.getBoolean("showdecimal_" + x, false));
+                newArc.setShowDecimals(prefs.getInt("showdecimals_" + x, 2));
                 newArc.setShowUnit(prefs.getBoolean("showunit_" + x, false));
 
                 newArc.setScaleUnit(prefs.getInt("scaleunit_" + x, 0));
@@ -328,7 +328,7 @@ public class DrawGauges {
                         newArc.setShowArc(prefs.getBoolean("showscale_" + x, true));
                         newArc.setShowText(prefs.getBoolean("showtext_" + x, true));
                         newArc.setUseGradientColor(prefs.getBoolean("usegradienttext_" + x, false));
-                        newArc.setShowDecimal(prefs.getBoolean("showdecimal_" + x, false));
+                        newArc.setShowDecimals(prefs.getInt("showdecimals_" + x, 2));
                         newArc.setShowUnit(prefs.getBoolean("showunit_" + x, false));
                         newArc.setTag("gauge_" + x);
 
