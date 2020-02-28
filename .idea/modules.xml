@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mobile/mobile.iml" filepath="$PROJECT_DIR$/mobile/mobile.iml" />
-      <module fileurl="file://$PROJECT_DIR$/obd2aa.iml" filepath="$PROJECT_DIR$/obd2aa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/obd2aa.iml" filepath="$PROJECT_DIR$/obd2aa.iml" group="obd2aa" />
+      <module fileurl="file://$PROJECT_DIR$/mobile/obd2aa-mobile.iml" filepath="$PROJECT_DIR$/mobile/obd2aa-mobile.iml" group="obd2aa/mobile" />
     </modules>
   </component>
 </project>
