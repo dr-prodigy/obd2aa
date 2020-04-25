@@ -115,7 +115,7 @@ public class ArcProgress extends View {
     private int x;
     private int needlecolor = -1;
     private int indent = 0;
-    private float startposition = 235;
+    private float startposition = 229;
 
     private Scale gaugeScale;
 
